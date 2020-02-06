@@ -12,6 +12,11 @@ describe("users model", () => {
     expect(res.length).toBeGreaterThan(0);
   })
 
+  test("findBy", async () => {
+    const user = await userModel.findBy({ username: "tiffany25" })
+    expect(user).toEqual([{"id": 1, "password": "123456", "username": "tiffany25"}]);
+  })
+
   test("findById", async () => {
     const res = await userModel.findById(1);
     expect(res.username).toBe("tiffany25")
