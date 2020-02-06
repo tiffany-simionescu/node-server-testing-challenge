@@ -32,3 +32,14 @@ test("login", async () => {
   // Data Format
   expect(res.type).toBe("application/json")
 })
+
+// GET - /users
+test("get all users", async () => {
+  const res = await supertest(server.use(router)).get('/users')
+
+  // Status Code - unauthorized
+  expect(res.status).toBe(400)
+
+  // Data Format
+  expect(res.type).toBe("application/json")
+})
